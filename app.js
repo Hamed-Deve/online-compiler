@@ -4,6 +4,7 @@ const hbs = require("hbs");
 const creatFile = require("src/utils/main");
 const bodyParser = require("body-parser");
 
+const port = process.env.PORT || 3000;
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -30,4 +31,6 @@ app.post("/submit-text", (req, res) => {
   });
 });
 
-app.listen();
+app.listen(port, () => {
+  console.log("server is running on port " + port);
+});
